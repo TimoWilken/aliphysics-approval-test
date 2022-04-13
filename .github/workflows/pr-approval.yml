@@ -12,11 +12,10 @@ permissions:
 jobs:
   approve:
     name: Handle comment
-    runs-on: ubuntu-latest
     # Run only on pull requests. the issue_comment event covers PRs and issues.
     if: github.event.issue.pull_request
     uses: TimoWilken/ali-bot/.github/workflows/pr-approval.yml@aliphysics-pr-approval
-    inputs:
+    with:
       repo: ${{ github.event.repository.full_name }}
       pr_number: ${{ github.event.issue.pull_request.number }}
       comment_author: ${{ github.event.comment.user.login }}
