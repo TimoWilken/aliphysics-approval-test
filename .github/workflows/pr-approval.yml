@@ -15,10 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     # Run only on pull requests. the issue_comment event covers PRs and issues.
     if: github.event.issue.pull_request
-    steps:
-      - uses: TimoWilken/ali-bot/.github/workflows/pr-approval.yml@aliphysics-pr-approval
-        inputs:
-          repo: ${{ github.event.repository.full_name }}
-          pr_number: ${{ github.event.issue.pull_request.number }}
-          comment_author: ${{ github.event.comment.user.login }}
-          comment_body: ${{ github.event.comment.body }}
+    uses: TimoWilken/ali-bot/.github/workflows/pr-approval.yml@aliphysics-pr-approval
+    inputs:
+      repo: ${{ github.event.repository.full_name }}
+      pr_number: ${{ github.event.issue.pull_request.number }}
+      comment_author: ${{ github.event.comment.user.login }}
+      comment_body: ${{ github.event.comment.body }}
