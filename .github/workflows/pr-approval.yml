@@ -1,6 +1,7 @@
+---
 name: PR approvals
 
-on:
+'on':
   issue_comment:
     types:
       - created
@@ -20,3 +21,5 @@ jobs:
       pr_number: ${{ github.event.issue.pull_request.number }}
       comment_author: ${{ github.event.comment.user.login }}
       comment_body: ${{ github.event.comment.body }}
+      github_token: ${{ secrets.ALIBUILD_GITHUB_TOKEN }}
+      config_repo_url: ${{ secrets.APPROVAL_CONFIG_REPO_URL }}
