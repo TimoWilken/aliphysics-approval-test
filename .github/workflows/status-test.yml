@@ -1,0 +1,13 @@
+---
+name: Status updates
+
+'on':
+  - status
+
+jobs:
+  status:
+    name: Show new status
+    run: |
+      cat << EOF
+      ${{ github.event }}
+      EOF
